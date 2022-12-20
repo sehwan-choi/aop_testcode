@@ -1,5 +1,6 @@
 package hello.aop;
 
+import hello.aop.member.MemberService;
 import hello.aop.order.OrderRepository;
 import hello.aop.order.OrderService;
 import hello.aop.order.aop.*;
@@ -22,6 +23,9 @@ import org.springframework.context.annotation.Import;
 public class AopTest {
 
     @Autowired
+    MemberService service;
+
+    @Autowired
     OrderService orderService;
 
     @Autowired
@@ -36,6 +40,11 @@ public class AopTest {
     @Test
     void success() {
         orderService.orderItem("itemA");
+    }
+
+    @Test
+    void success2() {
+        service.hello("itemA");
     }
 
     @Test
